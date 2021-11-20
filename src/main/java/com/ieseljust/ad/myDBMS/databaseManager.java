@@ -124,24 +124,12 @@ class databaseManager {
             increment.add(false);
           }
 
-          System.out.println(String.format("%-25s %-15s %-15s %-15s",
-              name,
-              tipus,
-              nullable,
-              autoincremental
-          ));
         }
 
         columnes.close();
 
         // Añadir '?'
         StringBuilder sql = new StringBuilder("INSERT INTO " + table + " VALUES (");
-        int interrogantes = names.size();
-        for (boolean b : increment) {
-          if (b) {
-            interrogantes--;
-          }
-        }
 
         for (int i = 0; i < names.size() - 1; i++) {
           sql.append("?, ");
